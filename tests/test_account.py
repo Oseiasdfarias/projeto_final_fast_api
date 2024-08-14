@@ -74,7 +74,7 @@ def test_read_account(client):
     response = client.get("/accounts/1")
 
     assert response.status_code == HTTPStatus.NOT_FOUND
-    assert response.json() == {"detail": "User not found."}
+    assert response.json() == {"detail": "Account not found."}
 
 
 def test_read_account_with_account(client, account):
@@ -127,7 +127,7 @@ def test_delete_account(client, account, token):
         headers={"Authorization": f"Bearer {token}"},
     )
     assert response.status_code == HTTPStatus.OK
-    assert response.json() == {"message": "Account deleted!"}
+    assert response.json() == {"message": "Conta deletada com sucesso"}
 
 
 def test_delete_account_not_permission(client, account, other_account, token):
